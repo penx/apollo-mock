@@ -18,6 +18,7 @@
   "homepage": "https://github.com/penx/apollo-mock#readme",
   "description": "Start a mock server from an GraphQL Schema file",
   "dependencies": {
+    "chance": "^1.1.4",
     "commander": "^5.0.0"
   },
   "peerDependencies": {

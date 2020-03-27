@@ -1,15 +1,16 @@
 "use strict";
 var fs = require("fs");
-var path = require("path");
 
 const { ApolloServer } = require("apollo-server");
+
+const mocks = require("./mocks");
 
 async function createServer(port, schema) {
   const typeDefs = fs.readFileSync(schema, "utf8");
 
   const server = new ApolloServer({
     typeDefs,
-    mocks: true
+    mocks
   });
 
   await server.listen(port).then(({ url }) => {
