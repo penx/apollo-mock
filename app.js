@@ -3,9 +3,9 @@ var fs = require("fs");
 
 const { ApolloServer } = require("apollo-server");
 
-const mocks = require("./mocks");
+const defaultMocks = require("./mocks");
 
-async function createServer(port, schema) {
+async function createServer(port, schema, mocks) {
   const typeDefs = fs.readFileSync(schema, "utf8");
 
   const server = new ApolloServer({
@@ -20,8 +20,8 @@ async function createServer(port, schema) {
   return server;
 }
 
-async function createApp({ schema, port = process.env.PORT || 10010 } = {}) {
-  const server = await createServer(port, schema);
+async function createApp({ schema, port = process.env.PORT || 10010, mocks = defaultMocks } = {}) {
+  const server = await createServer(port, schema, mocks);
   return server;
 }
 

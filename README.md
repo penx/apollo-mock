@@ -29,7 +29,8 @@ And lastly run `npm run mock`.
 Usage: apollo-mock [options] <schema>
 
 Options:
-  -V, --version   output the version number
-  -p, --port <n>  port to start the mock server on
-  -h, --help      display help for command
+  -V, --version      output the version number
+  -p, --port <n>     port to start the mock server on
+  -m, --mocks <dir>  path to mocks JavaScript file
+  -h, --help         display help for command
 ```

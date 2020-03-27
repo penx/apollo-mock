@@ -13,11 +13,12 @@ function resolvePath(relativePath) {
 program
   .version(version)
   .usage("[options] <schema>")
-  .option("-p, --port <n>", "port to start the mock server on", parseInt);
+  .option("-p, --port <n>", "port to start the mock server on", parseInt)
+  .option('-m, --mocks <dir>', 'path to mocks JavaScript file', resolvePath);
 
 program.parse(process.argv);
 
 const schema = program.args[0] ? resolvePath(program.args[0]) : undefined;
-const { port } = program;
+const { port, mocks } = program;
 
-app({ schema, port });
+app({ schema, port, mocks: mocks ? require(mocks) : undefined });
